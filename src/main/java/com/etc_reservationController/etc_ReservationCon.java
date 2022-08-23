@@ -18,10 +18,11 @@ public class etc_ReservationCon extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
+		// 예약하기 버튼을 누른 장소,날짜,퇴실시간,좌석번호를 받아온다.
 		String location = request.getParameter("location");
 		String date = request.getParameter("date");
 		String checkout = request.getParameter("checkout");
-		int seat = Integer.parseInt(request.getParameter("seat"));
+		String seat = request.getParameter("seat");
 			
 		HttpSession session = request.getSession();
 		
@@ -29,6 +30,7 @@ public class etc_ReservationCon extends HttpServlet {
 		
 		etc_reservationDAO dao = new etc_reservationDAO();
 		
+		// etc_reservationDAO에 있는 register() 메소드를 통해 예약을 등록하고 성공,실패여부를 리턴 받는다.
 		int cnt = dao.register(vo,location,seat,checkout,date);
 		
 		if (cnt > 0) {

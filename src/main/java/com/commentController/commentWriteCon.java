@@ -30,24 +30,26 @@ public class commentWriteCon extends HttpServlet {
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
 		String post_date = request.getParameter("post_date");	
+		int views = Integer.parseInt(request.getParameter("views"));
 		
 		commentDAO dao = new commentDAO();
 		
 		int cnt = dao.commentWrite(post_id,commet_content,vo.getId());
 		
 		if (cnt > 0) {
+			// VIew.jsp에서 받아온 게시글의 정보를 다시 View.jsp로 보내주기 위해 request scope사용
 			request.setAttribute("title", title);
 			request.setAttribute("writer", writer);
 			request.setAttribute("content", content);
 			request.setAttribute("post_date", post_date);
 			request.setAttribute("post_id", post_id);
+			request.setAttribute("views", views);
 			
+			// ★댓글을 작성하면 화면만 View.jsp로 이동할 뿐 url은 commentWriteCon이므로 새로고침하면 똑같은 댓글이 또 작성된다★.
 			RequestDispatcher rd = request.getRequestDispatcher("View.jsp");
 			rd.forward(request, response);
 		} else {
 			System.out.println("등록 실패");
-		}
-		
-		
+		}		
 	}
 }
