@@ -34,6 +34,8 @@
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
 							<img src="images/로고2.png"/>
+							<br>
+							<h>인공지능사관학교 학생관리시스템</h>
 							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
 							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
 							<ul class="actions">

@@ -13,6 +13,7 @@ import com.VO.memberVO;
 import com.VO.reservationVO;
 
 // 예약에 관련된 기능만 수행하는 클래스
+// 다오 작업
 public class reservationDAO {
 	
 	ArrayList<reservationVO> list = new ArrayList<reservationVO>();
