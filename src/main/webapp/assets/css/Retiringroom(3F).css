@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    width: 2560px;
+    margin-top: -100px;
+    margin-left: 160px;
+
+}		
+.main-container {
+    border: 1px;
+    background-color: #fffaf0;
+    width: 2000px;
+    height: 750px;
+    position: relative;
+    left: 50px;
+    margin-right: 50px;
+    border-radius: 20px;
+}
+
+.sub-container {
+    border: 1px;
+    background-color: #40385d;
+    width: 320px;
+    height: 750px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.sub-inner {
+    margin-top: 180px;
+
+}
+
+.top {
+    border:1px;
+    border-radius: 20px;
+    background-color: #fffaf0;
+    width: 1100px;
+    height: 90px;
+}
+
+
+.table {
+    border:1px;
+    border-radius: 500px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width: 300px;
+    height:180px;
+    top: 110px;
+    right: 700px;
+}
+.table1 {
+    border:1px;
+    border-radius: 500px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width: 300px;
+    height:180px;
+    top: 480px;
+    right: 700px;
+}
+.table2{
+    border:1px;
+    border-radius: 500px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:300px;
+    height:180px;
+    top: 280px;
+    right: 100px;
+}
+.table3{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:10px;
+    height:750px;
+    top: 0px;
+    right: 500px;
+}
+.table4{
+    border:1px;
+    border-radius: 500px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:480px;
+    height:10px;
+    top: 400px;
+    right: 620px;
+}
+
+
+.checkbox-wrap .check-icon  { display: inline-block;
+    width: 55px;
+    height: 60px;
+    background: url(images/chair1.png) left center no-repeat;
+    vertical-align: middle;
+    transition-duration: .2s;
+}
+.checkbox-wrap input[type=checkbox] {
+    display: none;
+}
+.checkbox-wrap input[type=checkbox]:checked + .check-icon {
+    background-image: url(images/chair2.png);
+    
+}
+.checkbox-wrap {
+    position: relative;
+    right: 0px;
+    font-size: 30px ;
+    font-weight: bold;
+    color: #00008b;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+}

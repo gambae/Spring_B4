@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Left Sidebar - Helios by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+		<style>
+			@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+			
+			.swiper {
+			  width: 100%;
+			  padding-top: 50px;
+			  padding-bottom: 50px;
+			}
+	  
+			.swiper-slide {
+			  background-position: center;
+			  background-size: cover;
+			  width: 30%;
+			  height: 30%;
+			}
+	  
+			.swiper-slide img {
+			  display: block;
+			  width: 100%; 
+			}
+		</style>
+	</head>
+	<body class="left-sidebar is-preload">
+		
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="../Main.jsp">메인</a></li>
+							<li><a href="../Reservation.jsp">강의장 연장신청</a></li>
+							<li><a href="../etc_Reservation.jsp">좌석 예약</a></li>
+							<li><a href="../freeboardSelectCon">게시판</a></li>
+							<li><a href="../Mypage.jsp">마이페이지</a></li>
+						</ul>
+					</nav>
+
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper">
+						  <div class="swiper-slide">
+							<img src="박병관-SpringB 소개.png" style="width:700px;height:600px;" />
+						  </div>
+						  <div class="swiper-slide">
+							<img src="spring_b_roadmap.png"style="width:700px;height:600px;" />
+						  </div>
+						  <div class="swiper-slide">
+							<img src="9월강의일정.png"style="width:900px;height:600px;" />
+						  </div>
+						  <div class="swiper-slide">
+							<img src="보충수업.png" style="width:700px;height:600px;"/>
+						  </div>				  
+						</div>
+						<div class="swiper-pagination"></div>
+					  </div>
+					  <br>
+				</div>
+
+			<!-- Footer -->
+			<div id="footer">
+				<div class="row">
+					<div class="col-12">
+						<!-- Contact -->
+							<section class="contact">
+								<p><h4>운영기관 : (사)스마트인재개발원</h4><br>
+									사업자등록번호 : 178-82-00065<br>
+									대표자 : 차준섭 &nbsp;&nbsp;&nbsp; 총괄책임자 : 반수경<br>
+									주소 : 광주광역시 동구 제봉로 92 (대성학원 1-3층)<br>
+									전화문의 : 062-710-3257~9<br>
+									카카오톡 : @인공지능사관학교<br>
+									상담시간 : 10시 ~ 17시 (월~금)
+								</p>
+									<header>
+										<h3>자세한 교육과정과 후기가 궁금하시다면?</h3>
+									</header>
+								<ul class="icons">
+									<li><a href="https://www.facebook.com/smhrd0317" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://www.instagram.com/smhrd0317/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://www.youtube.com/channel/UCubIpLB7cA9tWIUZ26WFKPg" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
+									<li><a href="https://blog.naver.com/jang0_0yw" ><span class="label">BLOG</span></a></li>
+								</ul>
+							</section>
+						<!-- Copyright -->
+							<div class="copyright">
+								<ul class="menu">
+									<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								</ul>
+							</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				var swiper = new Swiper(".mySwiper", {
+				  effect: "coverflow",
+				  grabCursor: true,
+				  centeredSlides: true,
+				  slidesPerView: "auto",
+				  coverflowEffect: {
+					rotate: 50,
+					stretch: 0,
+					depth: 100,
+					modifier: 1,
+					slideShadows: true,
+				  },
+				  pagination: {
+					el: ".swiper-pagination",
+				  },
+				});
+			  </script>
+	</body>
+</html>

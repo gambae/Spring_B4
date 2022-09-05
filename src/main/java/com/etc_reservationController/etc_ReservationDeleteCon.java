@@ -20,17 +20,22 @@ public class etc_ReservationDeleteCon extends HttpServlet {
 		
 		String date = request.getParameter("date");
 		
+		String update_check = request.getParameter("update_check");
+				
 		HttpSession session = request.getSession();
 		
 		memberVO vo = (memberVO) session.getAttribute("vo");	
 		
 		etc_reservationDAO dao = new etc_reservationDAO();
-		
-		// 매개변수로 보낸 날짜에 로그인 한 사람의 id로 예약한 정보를 삭제 후 성공,실패여부를 리턴받는다.
-		int cnt = dao.reservationDelete(vo.getId(),date);
+
+		int cnt = dao.reservationDelete(vo.getId(),date.substring(0,10));
 		
 		if (cnt > 0) {
-			response.sendRedirect("Reservation.jsp");
+			if (update_check == null || update_check.equals("")) {
+				response.sendRedirect("etc_Reservation.jsp");			
+			} else {
+				response.sendRedirect("UpdateCheck.html");
+			}			
 		} else {
 			System.out.println("삭제 실패");
 		}

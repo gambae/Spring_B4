@@ -1,0 +1,263 @@
+.container {
+    display: flex;
+    width: 2560px;
+    margin-top: -100px;
+    margin-left: 250px;
+
+}		
+.main-container {
+    border: 1px;
+    background-color: #fffaf0;
+    width: 2000px;
+    height: 800px;
+    position: relative;
+    left: -200px;
+    margin-right: -210px;
+    border-radius: 20px;
+}
+
+.sub-container {
+    border: 1px;
+    background-color: #243279;
+    width: 360px;
+    height: 800px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.sub-inner {
+    margin-top: 180px;
+
+}
+
+.top {
+    border:1px;
+    border-radius: 20px;
+    background-color: #fffaf0;
+    width: 1500px;
+    height: 90px;
+}
+
+
+.table {
+    border:1px;
+    border-radius: 20px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width: 420px;
+    height:90px;
+    top: 0px;
+    right: 1080px;
+}
+.table1 {
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width: 75px;
+    height:250px;
+    top: 0px;
+    right: 950px;
+}
+.table2{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:75px;
+    height:250px;
+    top: 0px;
+    right: 800px;
+}
+.table3{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:75px;
+    height:250px;
+    top: 0px;
+    right: 640px;
+}
+.table4{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:75px;
+    height:250px;
+    top: 0px;
+    right: 480px;
+}
+.table5{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:70px;
+    height:350px;
+    top: 0px;
+    right: 280px;
+}
+.table6{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:70px;
+    height:350px;
+    top: 0px;
+    right: 80px;
+}
+.table7{
+    border:1px;
+    border-radius: 0px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:350px;
+    height:200px;
+    top: 600px;
+    right: 1150px;
+}
+.table8{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:175px;
+    height:250px;
+    top: 260px;
+    right: 1210px;
+}
+.table9{
+    border:1px;
+    border-radius: 30px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:65px;
+    height:200px;
+    top: 600px;
+    right: 900px;
+}
+.table10{
+    border:1px;
+    border-radius: 30px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:65px;
+    height:200px;
+    top: 600px;
+    right: 750px;
+}
+.table11{
+    border:1px;
+    border-radius: 30px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:65px;
+    height:200px;
+    top: 600px;
+    right: 600px;
+}
+.table12{
+    border:1px;
+    border-radius: 30px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:65px;
+    height:200px;
+    top: 600px;
+    right: 450px;
+}
+.table13{
+    border:1px;
+    border-radius: 30px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:65px;
+    height:200px;
+    top: 350px;
+    right: 450px;
+}
+.table14{
+    border:1px;
+    border-radius: 30px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:65px;
+    height:200px;
+    top: 350px;
+    right: 600px;
+}
+.table15{
+    border:1px;
+    border-radius: 30px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:65px;
+    height:200px;
+    top: 350px;
+    right: 750px;
+}
+.table16{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:350px;
+    height:100px;
+    top: 600px;
+    right: 0px;
+}
+
+
+.checkbox-wrap .check-icon  { display: inline-block;
+    width: 55px;
+    height: 60px;
+    background: url(images/chair1.png) left center no-repeat;
+    vertical-align: middle;
+    transition-duration: .2s;
+}
+.checkbox-wrap input[type=checkbox] {
+    display: none;
+}
+.checkbox-wrap input[type=checkbox]:checked + .check-icon {
+    background-image: url(images/chair2.png);
+    
+}
+.checkbox-wrap {
+    position: relative;
+    right: 0px;
+    font-size: 30px ;
+    font-weight: bold;
+    color: #00008b;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+}
+
+
+.checkbox-team .check-icon  { display: inline-block;
+    width: 80px;
+    height: 60px;
+    background: url(images/team1.png) left center no-repeat;
+    vertical-align: middle;
+    transition-duration: .2s;
+}
+.checkbox-team input[type=checkbox] {
+    display: none;
+}
+.checkbox-team input[type=checkbox]:checked + .check-icon {
+    background-image: url(images/team2.png);
+    
+}
+.checkbox-team {
+    position: relative;
+    right: 0px;
+    font-size: 30px ;
+    font-weight: bold;
+    color: #00008b;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+}

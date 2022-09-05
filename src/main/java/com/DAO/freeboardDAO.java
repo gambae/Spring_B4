@@ -14,7 +14,9 @@ import com.VO.reservationVO;
 // 게시판 글의 기능을 담당하는 클래스
 public class freeboardDAO {
 	
-	ArrayList<freeboardVO> list = new ArrayList<freeboardVO>();
+	ArrayList<freeboardVO> list1 = new ArrayList<freeboardVO>();
+	ArrayList<freeboardVO> list2 = new ArrayList<freeboardVO>();
+	ArrayList<freeboardVO> list3 = new ArrayList<freeboardVO>();
 	memberVO vo = null;
 	freeboardVO freeboard_vo = null;
 	int cnt = 0;
@@ -26,9 +28,9 @@ public class freeboardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String db_url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
-			String db_id = "hr" ;
-			String db_pw = "hr";
+			String db_url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			String db_id = "gjai_5_4_0822" ;
+			String db_pw = "smhrd4";
 			
 			conn = DriverManager.getConnection(db_url,db_id,db_pw);
 		} catch (Exception e) {
@@ -52,20 +54,19 @@ public class freeboardDAO {
 		}
 	}
 	
-	// 게시글 작성 메소드
-	public int write(String id, String title, String content) {
+	public int write(String id, String title, String content,int board_type) {
 		try {
 			connection();
 			
 			// 조회수는 0으로 기본값 설정
-			String sql = "insert into freeboard values(post_id.nextval,?,?,?,sysdate,0)";
+			String sql = "insert into freeboard values(freeboard_seq.nextval,?,?,?,sysdate,0,?)";
 			
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setString(1,title);
 			psmt.setString(2,id);
 			psmt.setString(3,content);
-			
+			psmt.setInt(4,board_type);
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -76,27 +77,92 @@ public class freeboardDAO {
 		return cnt;
 	}
 	
-	// 게시글 총 개수를 반환해주는 메소드
-	public int postTotal() {
+public int postTotal() {
 		
-		int total = 0;
+		int total=0;
 		
 		try {
 			connection();
-
+			
 			String sql = "select * from freeboard";
 			
 			psmt = conn.prepareStatement(sql);
-
 			rs = psmt.executeQuery();
-			
-			while (rs.next()) {
-				total++;
+
+			while(rs.next()) {
+				total += 1;
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}  finally {
+		} finally {
+			close();
+		}
+		return total;
+	}
+	public int postTotal_1() {
+		
+		int total=0;
+		
+		try {
+			connection();
+			
+			String sql = "select * from freeboard where board_type=1";
+			
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+
+			while(rs.next()) {
+				total += 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return total;
+	}
+	
+	public int postTotal_2() {
+		
+		int total=0;
+		
+		try {
+			connection();
+			
+			String sql = "select * from freeboard where board_type=2";
+			
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+
+			while(rs.next()) {
+				total += 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return total;
+	}
+	
+	public int postTotal_3() {
+		
+		int total=0;
+		
+		try {
+			connection();
+			
+			String sql = "select * from freeboard where board_type=3";
+			
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				total += 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			close();
 		}
 		return total;
@@ -129,45 +195,112 @@ public class freeboardDAO {
 	
 	// viewPage에 맞는 게시글 목록을 담은 리스트를 반환하는 메소드
 	// ★이 부분 어려워서 이해안되시면 저한테 물어보세용★
-	public ArrayList<freeboardVO> postSelect(int viewPage) {
+	public ArrayList<freeboardVO> postSelect_1(int viewPage) {
 		
 		// 보여줄 게시글 범위의 마지막 post_id
 		// 총 게시글의 12개라 가정했을때 viewPage가 1이면 postRange는 12
 		// viewPage가 2이면 postRange는 7
-		int postRange = lastPostId()-(viewPage-1)*5;
-		
+		int postRange = postTotal_1()-(viewPage-1)*9;
 		try {
 			connection();
 			
 			// 늦게 작성한 글, 즉 post_id가 큰 글이 게시판 위에 보여져야하므로 post_id를 내림차순으로 정령
-			String sql = "select * from freeboard where post_id between ? and ? order by post_id desc";
+			String sql = "SELECT * FROM (SELECT rownum as num ,freeboard. * FROM freeboard WHERE board_type=1  order by post_id desc ) where num BETWEEN ? AND ?";
 			
 			psmt = conn.prepareStatement(sql);
-			
 			// 5개 기준이기 때문에 postRange가 12라면
 			// 8,9,10,11,12번 글이 리스트에 담긴다 
-			psmt.setInt(1,postRange-4);
+			psmt.setInt(1,postRange-8);
 			psmt.setInt(2,postRange);
 			
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				String post_id = rs.getString(1);
-				String title = rs.getString(2);
-				String writer = rs.getString(3);
-				String content = rs.getString(4);
-				String post_date = rs.getString(5);
-				int views = rs.getInt(6);
+				String post_id = rs.getString(2);
+				String title = rs.getString(3);
+				String writer = rs.getString(4);
+				String content = rs.getString(5);
+				String post_date = rs.getString(6);
+				int views = rs.getInt(7);
+				
 				
 				freeboard_vo = new freeboardVO(post_id,title,writer,content,post_date,views);
-				list.add(freeboard_vo);
+				list1.add(freeboard_vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}  finally {
 			close();
 		}
-		return list;
+		return list1;
+	}
+	public ArrayList<freeboardVO> postSelect_2(int viewPage) {
+		
+		int postRange = postTotal_2()-(viewPage-1)*9;
+		try {
+			connection();
+			
+			String sql = "SELECT * FROM (SELECT rownum as num ,freeboard. * FROM freeboard WHERE board_type=2  order by post_id desc ) where num BETWEEN ? AND ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1,postRange-8);
+			psmt.setInt(2,postRange);
+			
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String post_id = rs.getString(2);
+				String title = rs.getString(3);
+				String writer = rs.getString(4);
+				String content = rs.getString(5);
+				String post_date = rs.getString(6);
+				int views = rs.getInt(7);
+				
+				
+				freeboard_vo = new freeboardVO(post_id,title,writer,content,post_date,views);
+				list2.add(freeboard_vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
+			close();
+		}
+		return list2;
+	}
+	public ArrayList<freeboardVO> postSelect_3(int viewPage) {
+		
+		int postRange = postTotal_3()-(viewPage-1)*9;
+		try {
+			connection();
+			
+			String sql = "SELECT * FROM (SELECT rownum as num ,freeboard. * FROM freeboard WHERE board_type=3  order by post_id desc ) where num BETWEEN ? AND ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1,postRange-8);
+			psmt.setInt(2,postRange);
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				String post_id = rs.getString(2);
+				String title = rs.getString(3);
+				String writer = rs.getString(4);
+				String content = rs.getString(5);
+				String post_date = rs.getString(6);
+				int views = rs.getInt(7);
+				
+				
+				freeboard_vo = new freeboardVO(post_id,title,writer,content,post_date,views);
+				list3.add(freeboard_vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
+			close();
+		}
+		return list3;
 	}
 	
 	// 게시글 수정 메소드
@@ -225,6 +358,52 @@ public class freeboardDAO {
 			
 			psmt.setInt(1,views);
 			psmt.setString(2,post_id);
+			
+			cnt = psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+
+	public int nowPoint(String id) {
+		int point = 0;
+		
+		try {
+			connection();
+			
+			String sql = "select * from school_member where id = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1,id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				point = rs.getInt(10);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return point;
+	}
+	
+	public void postPoint(String id) {
+		int updatePoint = nowPoint(id) + 3;
+		try {
+			connection();
+			
+			String sql = "update school_member set point = ? where id = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1,updatePoint);
+			psmt.setString(2,id);
 			
 			cnt = psmt.executeUpdate();
 			

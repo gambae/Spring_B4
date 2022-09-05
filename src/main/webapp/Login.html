@@ -3,30 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/Login.css?after"/>
+<style>
+	
+</style>
 </head>
 <body>
-	<h3>로그인 페이지</h3>
-	
-	<!-- LoginCon으로 id,pw를 보내준다 -->
-	<form action="LoginCon" method="post">
-		<input type="text" name="id"> <br>
-		<input type="password" name="pw"> <br>
-		<input type="submit" value="로그인">
-	</form>
+	<div id="container" class="container">       
+        <div class="row">
+            <!-- SIGN UP -->
+            <div class="col align-items-center flex-col sign-up">
+                <div class="form2-wrapper align-items-center">
+                    <form action="JoinCon" method="post">
+                    <div class="form2 sign-up">
+                        <div class="input-group">
+                        <i class='bx bxs-user'></i>
+                        <select name="cls">
+                            <option value="" selected disabled>====선택해주세요====</option>
+                            <option value="Spring_A">Spring_A</option>
+                            <option value="Spring_B">Spring_B</option>
+                            <option value="JavaScript_A">JavaScript_A</option>
+                            <option value="JavaScript_B">JavaScript_B</option>
+                            <option value="App">App특화</option>
+                            <option value="Visual_Itg">시각지능</option>
+                            <option value="Object_Itg">사물지능</option>
+                            <option value="Language_Itg">언어지능</option>
+                            <option value="Cloud_A">Cloud_A</option>
+                            <option value="Cloud_B">Cloud_B</option>
+                        </select>
+                        </div>
+                        <div class="input-group">
+                        <i class='bx bxs-user'></i>
+                        <input type="text" name="id" placeholder="아이디를 입력하세요">
+                        </div>
+                        <div class="input-group">
+                        <i class='bx bx-mail-send'></i>
+                        <input type="password" name="pw" placeholder="비밀번호를 입력하세요">
+                        </div>
+                        <div class="input-group">
+                        <i class='bx bxs-lock-alt'></i>
+                        <input type="text" name="email" placeholder="메일 주소를 입력하세요">
+                        </div>
+                        <div class="input-group">
+                        <i class='bx bxs-lock-alt'></i>
+                        <input type="text" name="name" placeholder="이름을 입력하세요">
+                        </div>
+                        <div class="input-group">
+                        <i class='bx bxs-lock-alt'></i>
+                        <input type="text" name="birth" placeholder="생년월일 8자리를 입력하세요">
+                        </div>
+                        
+                        <div class="input-group">
+                        <i class='bx bxs-lock-alt'></i>
+                        <input type="text" name="tel" placeholder="(-)를 제외한 전화번호를 입력하세요">
+                        </div>
+                        <button>
+                        회원가입
+                        </button>
+                        <p>
+                        <span>
+                            계정이 있으신가요?
+                        </span>
+                        <b onclick="toggle()" class="pointer">
+                            로그인하러가기
+                        </b>
+                        </p>
+                        
+                    </div>
+                    </form>
+                </div>
+            </div>
+    
+    
+          <!-- END SIGN UP -->
+     
+          <!-- SIGN IN -->
+          
+          <div class="col align-items-center flex-col sign-in">
+            <div class="form2-wrapper align-items-center">
+                <form action="LoginCon" method="post">
+              <div class="form2 sign-in">
+                <div class="input-group">
+                  <i class='bx bxs-user'></i>
+                  <input type="text" name="id" placeholder="아이디를 입력하세요 ">
+                </div>
+                <div class="input-group">
+                  <i class='bx bxs-lock-alt'></i>
+                  <input type="password" name="pw" placeholder="비밀번호를 입력하세요">
+                </div>
+                <button> 로그인 </button>
+                <p><b>암호를 잊어버리셨나요?</b></p>
+                <p>
+                  <span>
+                    계정이 없으신가요?
+                  </span>
+                  <b onclick="toggle()" class="pointer">
+                    회원가입
+                  </b>
+                </p>
+              </div>
+            </form>
+            </div>
+            <div class="form2-wrapper">
+            </div>
+          </div>
+          <!-- END SIGN IN -->
+        </div>
+        <!-- END form2 SECTION -->
+    
+        <!-- CONTENT SECTION -->
+        <div class="row content-row">
+          <!-- SIGN IN CONTENT -->
+          <div class="col align-items-center flex-col">
+            <div class="text sign-in">
+              <h2>
+                로그인
+              </h2>
+      
+            </div>
+            <div class="img sign-in">
+        
+            </div>
+          </div>
+          <!-- END SIGN IN CONTENT -->
+          <!-- SIGN UP CONTENT -->
+          <div class="col align-items-center flex-col">
+            <div class="img sign-up">
+            
+            </div>
+            <div class="text sign-up">
+              <h2>
+                회원가입
+              </h2>
+      
+            </div>
+          </div>
+          <!-- END SIGN UP CONTENT -->
+        </div>
+        <!-- END CONTENT SECTION -->
+      </div>
+      <script>
+        let container = document.getElementById('container')
+
+        toggle = () => {
+        container.classList.toggle('sign-in')
+        container.classList.toggle('sign-up')
+        }
+
+        setTimeout(() => {
+        container.classList.add('sign-in')
+        }, 200)
+      </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

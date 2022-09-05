@@ -8,16 +8,26 @@ public class commentVO {
 	private String content;
 	private String comment_writer;
 	private String comment_date;
+	private String depth;
 	
-	public commentVO(String comment_id, String post_id, String content, String comment_writer, String comment_date) {
+	public commentVO(String comment_id, String post_id, String content, String comment_writer, String comment_date, String depth) {
 		super();
 		this.comment_id = comment_id;
 		this.post_id = post_id;
 		this.content = content;
 		this.comment_writer = comment_writer;
 		this.comment_date = comment_date;
+		this.depth = depth;
 	}
-	
+		
+	public String getDepth() {
+		return depth;
+	}
+
+	public void setDepth(String depth) {
+		this.depth = depth;
+	}
+
 	public String getComment_id() {
 		return comment_id;
 	}

@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    width: 1560px;
+    margin-top: 20px;
+    margin-left: 220px;
+
+}		
+.main-container {
+    border: 1px;
+    background-color: #fffaf0;
+    width: 800px;
+    height: 800px;
+    position: relative;
+    left: 120px;
+    margin-right: 100px;
+    border-radius: 20px;
+}
+
+.sub-container {
+    border: 1px;
+    background-color: #243279;
+    width: 320px;
+    height: 800px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.sub-inner {
+    margin-top: 180px;
+
+}
+
+.top {
+    border:1px;
+    border-radius: 20px;
+    background-color: #dcdcdc;
+    width: 800px;
+    height: 90px;
+}
+
+.right {
+    border:1px;
+    border-radius: 20px;
+    background-color: #dcdcdc;
+    width: 110px;
+    height: 685px;
+    float:right;	
+}
+
+.table {
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:130px;
+    height:500px;
+    top: 220px;
+    right: 410px;
+}
+
+.checkbox-wrap .check-icon  { display: inline-block;
+    width: 55px;
+    height: 60px;
+    background: url(images/chair1.png) left center no-repeat;
+    vertical-align: middle;
+    transition-duration: .2s;
+}
+.checkbox-wrap input[type=checkbox] {
+    display: none;
+}
+.checkbox-wrap input[type=checkbox]:checked + .check-icon {
+    background-image: url(images/chair2.png);
+    
+}
+.checkbox-wrap {
+    position: relative;
+    right: 0px;
+    font-size: 30px ;
+    font-weight: bold;
+    color: #00008b;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+}
+

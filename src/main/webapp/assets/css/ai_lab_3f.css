@@ -1,0 +1,127 @@
+.container {
+    display: flex;
+    width: 2560px;
+    margin-top: -100px;
+    margin-left: 220px;
+
+}		
+.main-container {
+    border: 1px;
+    background-color: #fffaf0;
+    width: 2000px;
+    height: 800px;
+    position: relative;
+    left: -70px;
+    margin-right: -90px;
+    border-radius: 20px;
+}
+
+.sub-container {
+    border: 1px;
+    background-color: #40385d;
+    width: 320px;
+    height: 800px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.sub-inner {
+    margin-top: 180px;
+
+}
+
+.top {
+    border:1px;
+    border-radius: 20px;
+    background-color: #fffaf0;
+    width: 1300px;
+    height: 90px;
+}
+
+
+.table {
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width: 300px;
+    height:150px;
+    top: 250px;
+    right: 1000px;
+}
+.table1 {
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width: 400px;
+    height:150px;
+    top: 550px;
+    right: 900px;
+}
+.table2{
+    border:1px;
+    border-radius: 20px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:180px;
+    height:300px;
+    top: 0px;
+    right: 550px;
+}
+.table3{
+    border:1px;
+    border-radius: 20px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:350px;
+    height:100px;
+    top: 250px;
+    right: 470px;
+}
+.table4{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:300px;
+    height:150px;
+    top: 150px;
+    right: 10px;
+}
+.table5{
+    border:1px;
+    border-radius: 40px;
+    background-color: #dcdcdc;
+    position:absolute;
+    width:300px;
+    height:150px;
+    top: 450px;
+    right: 10px;
+}
+
+
+.checkbox-wrap .check-icon  { display: inline-block;
+    width: 55px;
+    height: 60px;
+    background: url(images/chair1.png) left center no-repeat;
+    vertical-align: middle;
+    transition-duration: .2s;
+}
+.checkbox-wrap input[type=checkbox] {
+    display: none;
+}
+.checkbox-wrap input[type=checkbox]:checked + .check-icon {
+    background-image: url(images/chair2.png);
+    
+}
+.checkbox-wrap {
+    position: relative;
+    right: 0px;
+    font-size: 30px ;
+    font-weight: bold;
+    color: #00008b;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+}

@@ -25,9 +25,9 @@ public class etc_reservationDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String db_url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
-			String db_id = "hr";
-			String db_pw = "hr";
+			String db_url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			String db_id = "gjai_5_4_0822" ;
+			String db_pw = "smhrd4";
 
 			conn = DriverManager.getConnection(db_url, db_id, db_pw);
 		} catch (Exception e) {
@@ -55,8 +55,8 @@ public class etc_reservationDAO {
 	public int register(memberVO vo2, String location, String seat, String checkout, String date) {
 		try {
 			connection();
-
-			String sql = "insert into etc_reservation values(?,?,?,?,?,?,?)";
+			
+			String sql = "insert into etc_reservation values(?,?,?,?,?,?,?,etc_reservation_seq.nextval)";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -217,7 +217,76 @@ public class etc_reservationDAO {
 		return cnt;
 	}
 	
+	public int reservationCount(String location) {
+		try {
+			cnt = 0;
+			
+			connection();
 	
+			String sql = "select * from etc_reservation where rsv_location=? and rsv_date >=trunc(sysdate) and rsv_date < trunc(sysdate)+1";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,location);
+			
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				cnt++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	
+	public int nowPoint(String id) {
+		int point = 0;
+		
+		try {
+			connection();
+			
+			String sql = "select * from school_member where id = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1,id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				point = rs.getInt(10);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return point;
+	}
+	
+	public void reservationPoint(String id) {
+		int updatePoint = nowPoint(id) + 5;
+		try {
+			connection();
+			
+			String sql = "update school_member set point = ? where id = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1,updatePoint);
+			psmt.setString(2,id);
+			
+			cnt = psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
 	
 	
 }
